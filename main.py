@@ -1,6 +1,7 @@
-# -- coding: <windows1251>
 import tkinter as tk
 from tkinter import ttk
+
+from aes import start_encrypt_file
 from database import *
 from passwordGenerator import *
 
@@ -761,6 +762,6 @@ def exit_profile(_):
 
 if __name__ == '__main__':
     start_auth_window()
-    print('close')
     cursor.close()
     db.close()
+    start_encrypt_file('etc.db', main_key)

@@ -1,5 +1,10 @@
+import os.path
 import sqlite3
 
+from aes import start_decrypt_file, main_key
+
+if os.path.exists('etc.db'):
+    start_decrypt_file('etc.db', main_key)
 db = sqlite3.connect('etc.db')
 cursor = db.cursor()
 cursor.execute('''CREATE TABLE IF NOT EXISTS users (username TEXT PRIMARY KEY, profile_password TEXT)''')
